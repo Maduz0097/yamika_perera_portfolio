@@ -17,15 +17,15 @@ export default function SectionHeading({
     <div
       className={cn(
         "mb-12",
-        align === "center" && "text-center",
+        align === "center" && "text-center mx-auto",
         className
       )}
     >
-      <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-foreground">
+      <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-base text-muted max-w-2xl">
+        <p className="mt-3 text-base text-slate-600 max-w-2xl leading-relaxed">
           {subtitle}
         </p>
       )}

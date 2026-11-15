@@ -3,48 +3,72 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function Timeline() {
   return (
-    <section className="py-20 border-t border-border" aria-labelledby="timeline-heading">
+    <section className="py-24 border-t border-slate-200/80" aria-labelledby="timeline-heading">
       <div className="mx-auto max-w-5xl px-6">
-        <SectionHeading title="Career Timeline" />
+        <SectionHeading
+          title="Career Timeline"
+          subtitle="Leadership and engineering experience spanning product delivery, full-stack systems, and real-time platforms."
+        />
         <div id="timeline-heading" className="relative">
-          {/* Vertical line */}
+          {/* Vertical gradient line */}
           <div
-            className="absolute left-[7px] top-2 bottom-2 w-px bg-border hidden md:block"
+            className="absolute left-[7px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-blue-600 via-blue-400 to-slate-200 hidden md:block"
             aria-hidden="true"
           />
 
-          <div className="space-y-8">
+          <div className="space-y-10">
             {experience.map((exp, i) => (
-              <div key={i} className="relative md:pl-8">
-                {/* Dot */}
+              <div key={i} className="relative md:pl-9">
+                {/* Timeline node */}
                 <div
-                  className="absolute left-0 top-2 hidden md:block w-[15px] h-[15px] rounded-full border-2 border-accent bg-background"
+                  className={`absolute left-0 top-1.5 hidden md:flex items-center justify-center w-4 h-4 rounded-full border-2 ${
+                    exp.current
+                      ? "border-blue-600 bg-white ring-4 ring-blue-100"
+                      : "border-slate-400 bg-white"
+                  }`}
                   aria-hidden="true"
-                />
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                  <div>
-                    <h3 className="text-base font-semibold text-foreground">
-                      {exp.role}
-                    </h3>
-                    <p className="text-sm text-muted">{exp.company}</p>
-                  </div>
-                  <div className="shrink-0 text-right">
-                    <p className="text-sm text-muted whitespace-nowrap">
-                      {exp.period}
-                    </p>
-                    <p className="text-xs text-muted">{exp.location}</p>
-                  </div>
+                >
+                  {exp.current && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                  )}
                 </div>
-                <ul className="mt-3 space-y-1.5">
-                  {exp.highlights.map((h, j) => (
-                    <li
-                      key={j}
-                      className="text-sm text-foreground/80 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-1.5 before:bg-border before:rounded-full"
-                    >
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+
+                <div className="bg-gradient-to-b from-white to-slate-50/50 border border-slate-200/90 rounded-xl p-6 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="text-base md:text-lg font-semibold text-slate-900">
+                          {exp.role}
+                        </h3>
+                        {exp.current && (
+                          <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold text-blue-700 bg-blue-50 border border-blue-200/60 rounded-full">
+                            Current
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm font-medium text-blue-900/80 mt-0.5">
+                        {exp.company}
+                      </p>
+                    </div>
+                    <div className="shrink-0 text-left sm:text-right mt-1 sm:mt-0">
+                      <p className="text-xs font-semibold text-slate-700 whitespace-nowrap">
+                        {exp.period}
+                      </p>
+                      <p className="text-xs text-slate-500">{exp.location}</p>
+                    </div>
+                  </div>
+
+                  <ul className="mt-4 space-y-2">
+                    {exp.highlights.map((h, j) => (
+                      <li
+                        key={j}
+                        className="text-sm text-slate-700 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-1.5 before:bg-blue-400/60 before:rounded-full"
+                      >
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
