@@ -17,24 +17,20 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-[#FAFAF8]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-200/90 bg-[#FAFAF8]/95 backdrop-blur-sm">
       <nav
         className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
         aria-label="Main navigation"
       >
         <Link
           href="/"
-          className="group flex items-center gap-2.5 text-base font-bold tracking-tight text-slate-900 hover:text-blue-900 transition-colors"
+          className="text-base font-semibold tracking-tight text-slate-900 hover:text-[#1E3A5F] transition-colors"
         >
-          {/* Dual-color brand mark: Blue & Orange */}
-          <span className="relative flex h-3 w-3">
-            <span className="absolute inset-0 rounded-sm bg-gradient-to-tr from-blue-600 to-orange-500 shadow-sm" />
-          </span>
-          <span>{profile.name}</span>
+          {profile.name}
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1.5 bg-white/80 border border-slate-200/90 rounded-full px-2.5 py-1.5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] backdrop-blur-sm">
+        <ul className="hidden md:flex items-center gap-7">
           {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -43,10 +39,10 @@ export default function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`block px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-150 ${
+                  className={`text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-sm shadow-blue-500/20"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70"
+                      ? "text-[#1E3A5F] font-semibold"
+                      : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   {item.label}
@@ -58,7 +54,7 @@ export default function Header() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100"
+          className="md:hidden p-2 text-slate-600 hover:text-slate-900 rounded-md hover:bg-slate-100"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -91,8 +87,8 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-6 py-4 shadow-lg">
-          <ul className="flex flex-col gap-2">
+        <div className="md:hidden border-t border-slate-200 bg-white px-6 py-4 shadow-sm">
+          <ul className="flex flex-col gap-3">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -102,10 +98,10 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block px-4 py-2.5 text-sm font-semibold rounded-lg transition-colors ${
+                    className={`block text-sm font-medium py-1 transition-colors ${
                       isActive
-                        ? "bg-gradient-to-r from-blue-700 to-blue-600 text-white"
-                        : "text-slate-700 hover:bg-slate-100"
+                        ? "text-[#1E3A5F] font-semibold"
+                        : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {item.label}

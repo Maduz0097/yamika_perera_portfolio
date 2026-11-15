@@ -5,7 +5,7 @@ interface ButtonProps {
   children: React.ReactNode;
   href?: string;
   external?: boolean;
-  variant?: "primary" | "secondary" | "ghost" | "orange";
+  variant?: "primary" | "secondary" | "ghost";
   className?: string;
   download?: boolean;
 }
@@ -19,17 +19,15 @@ export default function Button({
   download,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:translate-y-px";
+    "inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A5F]";
 
   const variants = {
     primary:
-      "bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 text-white shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_14px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.35)] hover:from-blue-800 hover:to-blue-700 border border-blue-600/50",
+      "bg-[#1E3A5F] text-white hover:bg-[#152A45] shadow-sm",
     secondary:
-      "bg-white/90 backdrop-blur-sm border border-slate-200 text-slate-800 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900",
-    orange:
-      "bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_14px_rgba(249,115,22,0.25)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.35)] hover:from-orange-700 hover:to-amber-700 border border-orange-500/50",
+      "bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 hover:text-slate-900 shadow-sm",
     ghost:
-      "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 rounded-md",
+      "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70",
   };
 
   const classes = cn(base, variants[variant], className);
