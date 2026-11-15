@@ -17,21 +17,24 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-[#FAFAF8]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-[#FAFAF8]/90 backdrop-blur-md">
       <nav
         className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
         aria-label="Main navigation"
       >
         <Link
           href="/"
-          className="group flex items-center gap-2 text-base font-bold tracking-tight text-slate-900 hover:text-[#1E3A5F] transition-colors"
+          className="group flex items-center gap-2.5 text-base font-bold tracking-tight text-slate-900 hover:text-blue-900 transition-colors"
         >
-          <span className="w-2.5 h-2.5 rounded-sm bg-gradient-to-tr from-[#1E3A5F] to-[#2563EB]" />
+          {/* Dual-color brand mark: Blue & Orange */}
+          <span className="relative flex h-3 w-3">
+            <span className="absolute inset-0 rounded-sm bg-gradient-to-tr from-blue-600 to-orange-500 shadow-sm" />
+          </span>
           <span>{profile.name}</span>
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-1 bg-white/70 border border-slate-200/80 rounded-full px-2 py-1 shadow-[0_1px_2px_rgba(0,0,0,0.02)] backdrop-blur-sm">
+        <ul className="hidden md:flex items-center gap-1.5 bg-white/80 border border-slate-200/90 rounded-full px-2.5 py-1.5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] backdrop-blur-sm">
           {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -42,8 +45,8 @@ export default function Header() {
                   href={item.href}
                   className={`block px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-150 ${
                     isActive
-                      ? "bg-[#1E3A5F] text-white shadow-sm"
-                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
+                      ? "bg-gradient-to-r from-blue-700 to-blue-600 text-white shadow-sm shadow-blue-500/20"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70"
                   }`}
                 >
                   {item.label}
@@ -101,7 +104,7 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-2.5 text-sm font-semibold rounded-lg transition-colors ${
                       isActive
-                        ? "bg-[#1E3A5F] text-white"
+                        ? "bg-gradient-to-r from-blue-700 to-blue-600 text-white"
                         : "text-slate-700 hover:bg-slate-100"
                     }`}
                   >
