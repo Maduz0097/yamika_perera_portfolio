@@ -6,7 +6,7 @@ export const profile = {
   summary:
     "Technical Product Manager with hands-on engineering experience, leading 12+ engineers across field services, recruitment technology, and healthcare. I bridge business strategy with technical execution to deliver AI-enabled products.",
   location: "Sri Lanka",
-  email: "yamikaperera@gmail.com",
+  email: "aymperera@gmail.com",
   linkedin: "https://www.linkedin.com/in/yamika-perera/",
   github: "https://github.com/Maduz0097",
   credibilityItems: [
