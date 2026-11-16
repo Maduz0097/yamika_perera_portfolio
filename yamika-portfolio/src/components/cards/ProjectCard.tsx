@@ -5,21 +5,22 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group block bg-white border border-slate-200 rounded-lg p-6 sm:p-7 hover:border-slate-400 hover:shadow-sm transition-all duration-150"
+      className="group block bg-white border border-slate-200 rounded-xl p-6 sm:p-7 hover:border-blue-300 hover:shadow-md transition-all duration-200"
     >
       <div className="flex items-start justify-between gap-6">
         <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900 group-hover:text-[#1E3A5F] transition-colors">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <h3 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
               {project.title}
             </h3>
             {project.current && (
-              <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[11px] font-medium text-slate-700 bg-slate-100 border border-slate-200 rounded">
-                Current
+              <span className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-0.5 text-[11px] font-semibold text-orange-800 bg-orange-50 border border-orange-200 rounded-full shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                Current Project
               </span>
             )}
           </div>
-          <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-3">
+          <p className="text-xs font-semibold text-blue-700 uppercase tracking-wider mb-3">
             {project.client}
           </p>
           <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl">
@@ -30,7 +31,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               {project.technologies.slice(0, 5).map((tech) => (
                 <span
                   key={tech}
-                  className="inline-block px-2 py-0.5 text-[11px] font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded"
+                  className="inline-block px-2.5 py-1 text-[11px] font-medium text-blue-800 bg-blue-50/70 border border-blue-200/60 rounded"
                 >
                   {tech}
                 </span>
@@ -38,10 +39,10 @@ export default function ProjectCard({ project }: { project: Project }) {
             </div>
           )}
         </div>
-        <span className="shrink-0 text-slate-400 group-hover:text-slate-700 group-hover:translate-x-0.5 transition-all duration-150 mt-1">
+        <span className="shrink-0 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-150 mt-1">
           <svg
-            width="18"
-            height="18"
+            width="20"
+            height="20"
             viewBox="0 0 16 16"
             fill="none"
             stroke="currentColor"

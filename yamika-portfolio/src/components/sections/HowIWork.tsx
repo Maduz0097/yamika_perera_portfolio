@@ -6,30 +6,35 @@ const steps = [
     title: "Understand the Problem",
     description:
       "Deep-dive into user needs, business context, and technical constraints.",
+    badgeClass: "bg-blue-600 text-white",
   },
   {
     number: "02",
     title: "Define Direction",
     description:
       "Translate insights into clear requirements, roadmaps, and prioritised backlogs.",
+    badgeClass: "bg-blue-600 text-white",
   },
   {
     number: "03",
     title: "Align & Build Team",
     description:
       "Assemble the right people, align stakeholders, and establish engineering cadence.",
+    badgeClass: "bg-slate-800 text-white",
   },
   {
     number: "04",
     title: "Deliver Iteratively",
     description:
       "Sprint-based execution with continuous feedback, QA coordination, and engineering oversight.",
+    badgeClass: "bg-orange-600 text-white",
   },
   {
     number: "05",
     title: "Release & Learn",
     description:
       "Ship to production, measure outcomes, and feed learnings back into the next product cycle.",
+    badgeClass: "bg-orange-600 text-white",
   },
 ];
 
@@ -45,13 +50,15 @@ export default function HowIWork() {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="bg-white border border-slate-200 rounded-lg p-5 shadow-sm flex flex-col justify-between"
+              className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
-                <span className="text-xs font-semibold text-[#1E3A5F] uppercase tracking-wider">
+                <span
+                  className={`inline-flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold shadow-xs ${step.badgeClass}`}
+                >
                   {step.number}
                 </span>
-                <h3 className="mt-3 text-sm font-semibold text-slate-900 leading-snug">
+                <h3 className="mt-3 text-sm font-bold text-slate-900 leading-snug">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-xs text-slate-600 leading-relaxed">

@@ -24,33 +24,47 @@ export default function Header() {
       >
         <Link
           href="/"
-          className="text-base font-semibold tracking-tight text-slate-900 hover:text-[#1E3A5F] transition-colors"
+          className="group flex items-center gap-2.5 text-base font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors"
         >
-          {profile.name}
+          {/* Dual-color logo mark: Blue & Orange */}
+          <span className="flex h-4 w-4 rounded overflow-hidden">
+            <span className="w-2.5 h-full bg-blue-600" />
+            <span className="w-1.5 h-full bg-orange-500" />
+          </span>
+          <span>{profile.name}</span>
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-7">
-          {navItems.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== "/" && pathname?.startsWith(item.href + "/"));
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-[#1E3A5F] font-semibold"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="hidden md:flex items-center gap-6">
+          <ul className="flex items-center gap-1 bg-white border border-slate-200 rounded-full px-2 py-1 shadow-sm">
+            {navItems.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/" && pathname?.startsWith(item.href + "/"));
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`block px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-150 ${
+                      isActive
+                        ? "bg-blue-600 text-white shadow-sm"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <a
+            href={`mailto:${profile.email}`}
+            className="inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold rounded-full bg-orange-600 hover:bg-orange-700 text-white shadow-sm transition-colors"
+          >
+            Get in touch
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -88,7 +102,7 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t border-slate-200 bg-white px-6 py-4 shadow-sm">
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-2">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -98,10 +112,10 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block text-sm font-medium py-1 transition-colors ${
+                    className={`block px-4 py-2 text-sm font-semibold rounded-md transition-colors ${
                       isActive
-                        ? "text-[#1E3A5F] font-semibold"
-                        : "text-slate-600 hover:text-slate-900"
+                        ? "bg-blue-600 text-white"
+                        : "text-slate-600 hover:bg-slate-50"
                     }`}
                   >
                     {item.label}
@@ -109,6 +123,14 @@ export default function Header() {
                 </li>
               );
             })}
+            <li className="pt-2 border-t border-slate-100">
+              <a
+                href={`mailto:${profile.email}`}
+                className="block text-center px-4 py-2 text-sm font-semibold rounded-md bg-orange-600 text-white"
+              >
+                Get in touch
+              </a>
+            </li>
           </ul>
         </div>
       )}
