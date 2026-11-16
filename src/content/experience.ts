@@ -20,7 +20,7 @@ export const experience: Experience[] = [
       "Builds teams from scratch, including technical interviews, hiring, planning, execution, and production releases.",
       "Product areas include field services, recruitment technology, and healthcare.",
       "Significant AI components across current product work.",
-      "Product work includes the Origis field-services platform and Celestial's Flo Recruiter platform.",
+      "Product work includes the Origis enterprise field-services platform and Celestial's Flo Recruiter platform (celestialflo.ai), featuring AI skill matching, voice-powered resume parsing, and multi-channel candidate outreach.",
     ],
   },
   {

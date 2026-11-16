@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
             </p>
           </section>
 
-          {/* Overview */}
+          {/* Product Overview */}
           <section>
             <h2 className="text-xs font-bold uppercase tracking-wider text-[#546e7a] mb-2">
               Product Overview
@@ -102,6 +102,31 @@ export default async function ProjectPage({ params }: { params: Params }) {
               {project.description}
             </p>
           </section>
+
+          {/* Key Product Capabilities / Features */}
+          {project.features && project.features.length > 0 && (
+            <section>
+              <h2 className="text-xs font-bold uppercase tracking-wider text-[#263238] mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#ff7043]" />
+                Key Product Capabilities
+              </h2>
+              <div className="grid gap-3">
+                {project.features.map((feat) => (
+                  <div
+                    key={feat.title}
+                    className="p-4 bg-[#f2f4f8] border border-[#dde1e6] rounded-lg"
+                  >
+                    <h3 className="text-sm font-bold text-[#263238] mb-1">
+                      {feat.title}
+                    </h3>
+                    <p className="text-xs text-[#546e7a] leading-relaxed">
+                      {feat.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Scope & Key Workflows */}
           <section className="bg-white border border-[#dde1e6] rounded-xl p-6 sm:p-7 shadow-xs">

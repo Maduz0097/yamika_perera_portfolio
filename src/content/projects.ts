@@ -1,3 +1,8 @@
+export interface ProjectFeature {
+  title: string;
+  description: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -7,6 +12,7 @@ export interface Project {
   role: string;
   context: string;
   scope: string[];
+  features?: ProjectFeature[];
   technologies: string[];
   delivery: string;
   externalUrl?: string;
@@ -19,46 +25,107 @@ export const projects: Project[] = [
     slug: "origis-field-services",
     title: "Origis Field Services Platform",
     client: "Origis USA via Celestial BI",
-    tagline: "Product management and engineering leadership for field operations",
+    tagline: "Enterprise field operations, asset management, and offline inspections",
     description:
-      "Enterprise field-services platform covering work orders, inspections, offline workflows, and AI-supported functionality. Direct client collaboration on requirements, prioritisation, planning, and delivery.",
+      "Enterprise field-services platform for utility-scale solar and clean energy operations. Supports work order lifecycles, structured equipment inspections, offline-first field synchronization, and AI-assisted findings generation directly from technician observations.",
     role: "Technical Product Manager / Engineering Lead",
     context:
-      "Origis USA required a comprehensive field-services platform to manage work orders, inspections, and offline-capable workflows for their operations teams.",
+      "Origis USA required a mission-critical field operations platform to manage complex work orders, safety protocols, and asset inspections across utility-scale energy installations where remote field crews often operate without cellular connectivity.",
     scope: [
-      "Work order management and tracking",
-      "Inspection workflows",
-      "Offline-capable field operations",
-      "AI-supported functionality",
-      "Requirements gathering and prioritisation",
-      "Engineering team coordination",
+      "End-to-end work order dispatch and lifecycle tracking",
+      "Offline-first checklist execution and field data capture",
+      "Automated photo and voice observation logging",
+      "AI-assisted inspection findings and anomaly watchlists",
+      "Direct international client collaboration and roadmap prioritisation",
+      "Cross-functional coordination of 12+ engineers across releases",
     ],
-    technologies: [],
+    features: [
+      {
+        title: "Offline-First Execution",
+        description:
+          "Enables field technicians to execute multi-step inspection checklists, log photos, and capture voice notes in remote utility sites with automatic background sync upon reconnection.",
+      },
+      {
+        title: "AI Findings Watchlist",
+        description:
+          "Analyzes spoken technician observations and inspection imagery to highlight critical anomalies, recurring issues, and items requiring follow-up.",
+      },
+      {
+        title: "Zero-Retype Inspection Reports",
+        description:
+          "Automatically generates customer-ready service reports and billing handoffs directly from recorded field records without manual technician write-ups.",
+      },
+    ],
+    technologies: [
+      "Offline-First Architecture",
+      "AI Inspection Analysis",
+      "Work Order Management",
+      "Field Operations Sync",
+      "Enterprise Web & Mobile",
+    ],
     delivery:
-      "End-to-end product delivery with direct international client collaboration. Leading engineering execution from requirements through production release.",
+      "Led product strategy, client alignment with Origis USA, and technical execution. Coordinated engineering teams from discovery and architectural definition through staging, QA, and production releases.",
     priority: 1,
     current: true,
   },
   {
     slug: "flo-recruiter",
-    title: "Flo Recruiter Platform",
+    title: "Flo Recruiter & Field Platform",
     client: "Celestial BI",
-    tagline: "AI-enabled recruitment platform from product to production",
+    tagline: "AI-powered hiring portal and career companion for field service talent",
     description:
-      "AI-enabled recruitment platform encompassing product planning, team formation, requirements definition, engineering execution, and releases with AI-enabled capabilities woven throughout recruitment workflows.",
+      "AI-driven recruitment and career platform built for field service technicians, installers, and trade specialists across HVAC, solar, utilities, and telecom. Features an employer hiring portal with AI skill matching and SMS/WhatsApp outreach, paired with a mobile career companion offering voice-powered resume building, digital credential wallets, and AI upskilling pathways.",
     role: "Technical Product Manager",
     context:
-      "Celestial BI needed an AI-powered recruitment platform to streamline hiring workflows and leverage AI capabilities across the recruitment process.",
+      "Field service industries face chronic shortages of certified technicians, yet traditional ATS platforms rely on static keyword searches and desktop forms. Celestial developed Flo (celestialflo.ai) to bridge this gap: empowering field crews to build resumes by voice in under 5 minutes and equipping employers with AI skill-matching, referral pipelines, and instant multi-channel candidate messaging.",
     scope: [
-      "Product planning and delivery",
-      "Team formation and engineering execution",
-      "Requirements definition",
-      "AI-enabled recruitment workflows",
-      "Production releases",
+      "Product vision, feature roadmaps, and stakeholder alignment",
+      "Team formation: technical hiring, coding interviews, and onboarding from scratch",
+      "AI skill-matching and certification gap analysis engine",
+      "Voice-to-resume parsing workflow converting spoken experience into verified skills",
+      "Digital Career Wallet for trade licenses (EPA, OSHA, NABCEP) and credentials",
+      "Multi-channel candidate communication via integrated SMS and WhatsApp",
+      "Job distribution across 100+ job boards and HRIS interoperability",
+      "Sprint planning, cross-functional delivery, and iterative production releases",
     ],
-    technologies: [],
+    features: [
+      {
+        title: "Voice-Powered Resume Builder",
+        description:
+          "Allows technicians to speak their work history and generates a professional, structured resume in under 5 minutes with AI-suggested skills and certifications.",
+      },
+      {
+        title: "AI Skill Matching & Gap Analysis",
+        description:
+          "Evaluates candidate profiles against job requirements, surfacing matched trade skills, licenses, and missing qualifications before employer review.",
+      },
+      {
+        title: "Digital Career Wallet",
+        description:
+          "Centralized mobile record keeping verified licenses, safety certifications (EPA 608, OSHA 30, NABCEP), and trade experience ready for opportunities.",
+      },
+      {
+        title: "Multi-Channel Candidate Messaging",
+        description:
+          "Connects recruiters and hiring teams with field talent directly over SMS and WhatsApp, drastically reducing response latency in hiring workflows.",
+      },
+      {
+        title: "100+ Job Board & HRIS Syndication",
+        description:
+          "Automated multi-platform job distribution connected with enterprise applicant tracking and HR systems.",
+      },
+    ],
+    technologies: [
+      "AI Skill Matching",
+      "Voice Resume Parsing (LLM)",
+      "Multi-Channel Messaging (SMS/WhatsApp)",
+      "Job Board & HRIS APIs",
+      "Next.js & TypeScript",
+      "Cloudflare / Cloud Infrastructure",
+    ],
     delivery:
-      "Built the team from scratch through technical interviews and hiring. Led planning, execution, and production releases.",
+      "Formed and mentored the engineering team from the ground up through technical interviews. Managed end-to-end delivery across product discovery, AI workflow design, user journeys, sprint execution, and live production deployment at celestialflo.ai.",
+    externalUrl: "https://celestialflo.ai/",
     priority: 2,
     current: true,
   },
