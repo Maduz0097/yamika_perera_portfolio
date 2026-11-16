@@ -14,24 +14,28 @@ export const metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section className="py-20">
+      <section className="py-20 md:py-24">
         <div className="mx-auto max-w-3xl px-6">
-          <SectionHeading title="About" />
+          <SectionHeading
+            eyebrow="ABOUT"
+            title="Yamika Perera"
+            subtitle="Technical Product Manager bridging business strategy with deep engineering execution."
+          />
 
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-foreground/90 leading-relaxed">
+          <div className="space-y-5 text-base md:text-lg text-[#263238] leading-relaxed">
+            <p>
               I&apos;m a Technical Product Manager with a hands-on software
               engineering background, currently leading product delivery at{" "}
               <strong>Celestial BI</strong> working directly with{" "}
               <strong>Origis USA</strong>.
             </p>
-            <p className="text-base text-foreground/80 leading-relaxed mt-4">
+            <p className="text-[#546e7a]">
               I lead and co-ordinate 12+ engineers across multiple simultaneous
               projects spanning field services, recruitment technology, and
               healthcare. I build teams from scratch — from technical interviews
               and hiring through planning, execution, and production releases.
             </p>
-            <p className="text-base text-foreground/80 leading-relaxed mt-4">
+            <p className="text-[#546e7a]">
               My background bridges product strategy with deep technical
               execution. Before moving into product leadership, I spent three
               years as a software engineer building real-time systems, analytics
@@ -40,20 +44,23 @@ export default function AboutPage() {
               product direction while understanding implementation deeply enough
               to work effectively with engineering teams.
             </p>
-            <p className="text-base text-foreground/80 leading-relaxed mt-4">
+            <p className="text-[#546e7a]">
               AI is woven throughout my current product work, from AI-supported
-              field-services workflows to AI-enabled recruitment capabilities.
-              I&apos;m driven by the opportunity to translate emerging AI
-              capabilities into products that solve real problems.
+              field-services workflows to AI-enabled recruitment capabilities
+              (Flo Recruiter). I&apos;m driven by the opportunity to translate
+              emerging AI capabilities into products that solve real problems.
             </p>
           </div>
 
-          {/* Location */}
-          <div className="mt-12 p-6 border border-border rounded-lg">
-            <h3 className="text-sm font-semibold text-foreground mb-2">
-              Location & Availability
-            </h3>
-            <p className="text-sm text-muted leading-relaxed">
+          {/* Location card */}
+          <div className="mt-12 p-6 bg-[#f2f4f8] border border-[#dde1e6] rounded-xl">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#ff7043]" />
+              <h3 className="text-sm font-bold text-[#263238]">
+                Location & Availability
+              </h3>
+            </div>
+            <p className="text-sm text-[#546e7a] leading-relaxed">
               Based in {profile.location}. Open to relocation to Dubai, UAE.
               Requires UAE employment visa sponsorship.
             </p>
@@ -61,21 +68,21 @@ export default function AboutPage() {
 
           {/* Education */}
           <div className="mt-12">
-            <h3 className="text-lg font-semibold text-foreground mb-6">
+            <h3 className="text-xl font-bold text-[#263238] mb-6">
               Education
             </h3>
             <div className="space-y-4">
               {education.map((edu, i) => (
-                <div key={i} className="border border-border rounded-lg p-5">
-                  <h4 className="text-sm font-semibold text-foreground">
+                <div key={i} className="bg-white border border-[#dde1e6] rounded-xl p-5 shadow-xs">
+                  <h4 className="text-base font-bold text-[#263238]">
                     {edu.degree}
                   </h4>
-                  <p className="text-sm text-muted mt-1">
+                  <p className="text-sm text-[#546e7a] mt-1">
                     {edu.institution}
                     {edu.year && ` · ${edu.year}`}
                   </p>
                   {edu.note && (
-                    <p className="text-xs text-muted mt-1">{edu.note}</p>
+                    <p className="text-xs font-semibold text-[#ff7043] mt-1">{edu.note}</p>
                   )}
                 </div>
               ))}

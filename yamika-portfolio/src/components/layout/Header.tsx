@@ -17,26 +17,25 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/90 bg-[#FAFAF8]/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-[#dde1e6] bg-white/95 backdrop-blur-md">
       <nav
         className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
         aria-label="Main navigation"
       >
         <Link
           href="/"
-          className="group flex items-center gap-2.5 text-base font-bold tracking-tight text-slate-900 hover:text-blue-600 transition-colors"
+          className="group flex items-center gap-2.5 text-base font-bold tracking-tight text-[#263238]"
         >
-          {/* Dual-color logo mark: Blue & Orange */}
-          <span className="flex h-4 w-4 rounded overflow-hidden">
-            <span className="w-2.5 h-full bg-blue-600" />
-            <span className="w-1.5 h-full bg-orange-500" />
+          {/* Celestial-inspired geometric mark */}
+          <span className="flex items-center justify-center w-6 h-6 rounded bg-[#263238] text-white text-xs font-bold">
+            Y<span className="text-[#ff7043]">.</span>
           </span>
-          <span>{profile.name}</span>
+          <span className="group-hover:text-[#ff7043] transition-colors">{profile.name}</span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
-          <ul className="flex items-center gap-1 bg-white border border-slate-200 rounded-full px-2 py-1 shadow-sm">
+        <div className="hidden md:flex items-center gap-7">
+          <ul className="flex items-center gap-6 text-sm font-semibold text-[#546e7a]">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -45,10 +44,10 @@ export default function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`block px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-150 ${
+                    className={`transition-colors py-1 ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-sm"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                        ? "text-[#ff7043] font-bold border-b-2 border-[#ff7043]"
+                        : "hover:text-[#263238]"
                     }`}
                   >
                     {item.label}
@@ -60,7 +59,7 @@ export default function Header() {
 
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex items-center justify-center px-3.5 py-1.5 text-xs font-semibold rounded-full bg-orange-600 hover:bg-orange-700 text-white shadow-sm transition-colors"
+            className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg bg-[#ff7043] hover:bg-[#f4511e] text-white transition-colors"
           >
             Get in touch
           </a>
@@ -68,7 +67,7 @@ export default function Header() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-slate-600 hover:text-slate-900 rounded-md hover:bg-slate-100"
+          className="md:hidden p-2 text-[#263238] hover:bg-[#f2f4f8] rounded-md"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -101,8 +100,8 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-6 py-4 shadow-sm">
-          <ul className="flex flex-col gap-2">
+        <div className="md:hidden border-t border-[#dde1e6] bg-white px-6 py-4 shadow-md">
+          <ul className="flex flex-col gap-3">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -112,10 +111,8 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block px-4 py-2 text-sm font-semibold rounded-md transition-colors ${
-                      isActive
-                        ? "bg-blue-600 text-white"
-                        : "text-slate-600 hover:bg-slate-50"
+                    className={`block py-1 text-sm font-semibold transition-colors ${
+                      isActive ? "text-[#ff7043]" : "text-[#546e7a] hover:text-[#263238]"
                     }`}
                   >
                     {item.label}
@@ -123,10 +120,10 @@ export default function Header() {
                 </li>
               );
             })}
-            <li className="pt-2 border-t border-slate-100">
+            <li className="pt-2 border-t border-[#dde1e6]">
               <a
                 href={`mailto:${profile.email}`}
-                className="block text-center px-4 py-2 text-sm font-semibold rounded-md bg-orange-600 text-white"
+                className="block text-center px-4 py-2 text-sm font-semibold rounded-lg bg-[#ff7043] text-white"
               >
                 Get in touch
               </a>

@@ -14,13 +14,14 @@ export default function WorkPage() {
   const sorted = [...projects].sort((a, b) => a.priority - b.priority);
 
   return (
-    <section className="py-20">
+    <section className="py-20 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeading
-          title="Selected Work"
-          subtitle="Product leadership and engineering across AI-enabled platforms, field services, recruitment technology, and analytics."
+          eyebrow="SELECTED WORK"
+          title="Product Leadership & Engineering"
+          subtitle="Enterprise platforms across field services, AI recruitment (Flo Recruiter), telecommunications analytics, and real-time systems."
         />
-        <div className="grid gap-4">
+        <div className="grid gap-5">
           {sorted.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

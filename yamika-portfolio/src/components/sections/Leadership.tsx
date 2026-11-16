@@ -3,69 +3,66 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const leadershipPoints = [
   {
     title: "12+ Engineers",
-    subtitle: "Scale & Concurrent Projects",
+    subtitle: "Scale & Concurrent Execution",
     description:
       "Leading and co-ordinating engineers across multiple simultaneous projects and distinct product domains.",
-    color: "blue",
+    accent: "orange",
   },
   {
     title: "Team Building",
     subtitle: "Talent & Formation",
     description:
       "Building engineering teams from scratch — from technical interviews and hiring through planning, execution, and production release.",
-    color: "orange",
+    accent: "dark",
   },
   {
     title: "Product Delivery",
     subtitle: "End-to-End Ownership",
     description:
       "End-to-end product delivery: requirements analysis, roadmaps, sprint planning, QA coordination, deployment, and release management.",
-    color: "blue",
+    accent: "orange",
   },
   {
     title: "Client Collaboration",
     subtitle: "Direct Stakeholder Alignment",
     description:
       "Direct international client collaboration with Origis USA on requirements, prioritisation, planning, and delivery.",
-    color: "orange",
+    accent: "dark",
   },
 ];
 
 export default function Leadership() {
   return (
-    <section className="py-20 border-t border-slate-200" aria-labelledby="leadership-heading">
+    <section className="py-20 md:py-24 bg-[#f2f4f8] border-b border-[#dde1e6]" aria-labelledby="leadership-heading">
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeading
-          title="Engineering Leadership"
+          eyebrow="LEADERSHIP"
+          title="Engineering & Product Leadership"
           subtitle="Building teams and delivering complex products across multiple domains and geographies."
         />
         <div id="leadership-heading" className="grid md:grid-cols-2 gap-6">
           {leadershipPoints.map((point) => {
-            const isOrange = point.color === "orange";
+            const isOrange = point.accent === "orange";
             return (
               <div
                 key={point.title}
-                className="relative bg-white border border-slate-200 rounded-xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white border border-[#dde1e6] rounded-xl p-7 shadow-xs hover:border-[#ff7043] transition-colors"
               >
-                {/* Crisp colored top border accent */}
+                {/* Clean solid 3px top accent bar - NO gradients */}
                 <div
-                  className={`absolute top-0 left-6 right-6 h-1 rounded-b ${
-                    isOrange ? "bg-orange-500" : "bg-blue-600"
+                  className={`h-[3px] w-12 rounded mb-5 ${
+                    isOrange ? "bg-[#ff7043]" : "bg-[#263238]"
                   }`}
                 />
-                <div className="flex items-baseline justify-between mb-2 mt-1">
-                  <h3 className="text-lg font-bold text-slate-900">
+                <div className="flex items-baseline justify-between mb-2">
+                  <h3 className="text-xl font-bold text-[#263238]">
                     {point.title}
                   </h3>
-                  <span
-                    className={`text-xs font-semibold uppercase tracking-wider ${
-                      isOrange ? "text-orange-600" : "text-blue-600"
-                    }`}
-                  >
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#546e7a]">
                     {point.subtitle}
                   </span>
                 </div>
-                <p className="text-sm text-slate-600 leading-relaxed mt-2">
+                <p className="text-sm text-[#546e7a] leading-relaxed mt-2">
                   {point.description}
                 </p>
               </div>

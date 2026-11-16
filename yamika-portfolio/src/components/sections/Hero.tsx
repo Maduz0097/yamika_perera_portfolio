@@ -3,62 +3,75 @@ import Button from "@/components/ui/Button";
 
 export default function Hero() {
   return (
-    <section className="py-20 md:py-28" aria-label="Introduction">
+    <section className="py-20 md:py-28 border-b border-[#dde1e6]" aria-label="Introduction">
       <div className="mx-auto max-w-5xl px-6">
-        {/* Status indicator with orange accent */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 mb-8 text-xs font-semibold text-orange-800 bg-orange-50 border border-orange-200/80 rounded-full shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-orange-500" />
-          <span>Technical Product Manager</span>
-          <span className="text-orange-300">•</span>
-          <span className="text-slate-700">Open to Dubai, UAE</span>
+        {/* Flo-style eyebrow with signature orange line */}
+        <div className="flex items-center gap-2 mb-6">
+          <span className="w-5 h-[2px] bg-[#ff7043] inline-block" />
+          <span className="text-xs font-bold tracking-widest uppercase text-[#546e7a]">
+            Technical Product Manager • Open to Dubai, UAE
+          </span>
         </div>
 
-        {/* Clear headline with confident solid blue accent */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] max-w-4xl">
-          I build{" "}
-          <span className="text-blue-600">AI-powered products</span>{" "}
-          and lead the teams that bring them to life.
+        {/* High-impact headline with solid Flo orange highlight */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#263238] leading-[1.12] max-w-4xl">
+          I build <span className="text-[#ff7043]">AI-powered products</span> and lead the teams that bring them to life.
         </h1>
 
-        <p className="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+        <p className="mt-6 text-lg md:text-xl text-[#546e7a] max-w-2xl leading-relaxed">
           {profile.summary}
         </p>
 
-        {/* Credibility badges with visible Blue and Orange indicators */}
-        <div className="mt-8 flex flex-wrap gap-2.5">
-          {profile.credibilityItems.map((item, idx) => {
-            const isOrange = idx % 2 === 1;
-            return (
-              <span
-                key={item}
-                className={`inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold rounded-md border ${
-                  isOrange
-                    ? "text-orange-800 bg-orange-50/70 border-orange-200"
-                    : "text-blue-800 bg-blue-50/70 border-blue-200"
-                }`}
-              >
-                <span
-                  className={`w-1.5 h-1.5 rounded-full ${
-                    isOrange ? "bg-orange-500" : "bg-blue-600"
-                  }`}
-                />
-                {item}
-              </span>
-            );
-          })}
+        {/* Flo-style micro credibility items with orange bullets */}
+        <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium text-[#263238]">
+          {profile.credibilityItems.map((item, idx) => (
+            <span key={item} className="flex items-center gap-2">
+              {idx > 0 && <span className="text-[#ff7043] font-bold">•</span>}
+              <span>{item}</span>
+            </span>
+          ))}
         </div>
 
-        {/* Action buttons featuring both Blue and Orange */}
-        <div className="mt-10 flex flex-wrap items-center gap-3.5">
-          <Button href="/work" variant="blue">
-            Selected Work
+        {/* Clean, solid action buttons - NO gradient outlines! */}
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <Button href="/work" variant="dark">
+            Selected Work <span>→</span>
           </Button>
-          <Button href={`mailto:${profile.email}`} external variant="orange">
+          <Button href={`mailto:${profile.email}`} external variant="primary">
             Get in Touch
           </Button>
           <Button href={profile.linkedin} external variant="secondary">
             LinkedIn Profile
           </Button>
+        </div>
+
+        {/* Flo-inspired Executive Summary Banner */}
+        <div className="mt-14 p-6 bg-[#f2f4f8] border border-[#dde1e6] rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#ff7043]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#263238]">
+                Current Product Leadership
+              </span>
+            </div>
+            <p className="text-sm font-semibold text-[#263238]">
+              Celestial BI LLC <span className="text-[#546e7a] font-normal">in direct collaboration with</span> Origis USA
+            </p>
+            <p className="text-xs text-[#546e7a] mt-0.5">
+              Leading 12+ engineers across Field Services & AI Recruitment (Flo Recruiter)
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="px-3 py-1 text-xs font-semibold rounded bg-white border border-[#dde1e6] text-[#263238]">
+              Field Services
+            </span>
+            <span className="px-3 py-1 text-xs font-semibold rounded bg-white border border-[#dde1e6] text-[#263238]">
+              Flo Recruiter AI
+            </span>
+            <span className="px-3 py-1 text-xs font-semibold rounded bg-[#ff704318] border border-[#ff704344] text-[#d84315]">
+              Dubai Relocation Ready
+            </span>
+          </div>
         </div>
       </div>
     </section>

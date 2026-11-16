@@ -5,7 +5,7 @@ interface ButtonProps {
   children: React.ReactNode;
   href?: string;
   external?: boolean;
-  variant?: "primary" | "secondary" | "ghost" | "blue" | "orange";
+  variant?: "primary" | "secondary" | "dark" | "ghost";
   className?: string;
   download?: boolean;
 }
@@ -14,24 +14,23 @@ export default function Button({
   children,
   href,
   external,
-  variant = "blue",
+  variant = "primary",
   className,
   download,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 shadow-sm active:translate-y-px";
+    "inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold rounded-lg transition-all duration-150 cursor-pointer active:translate-y-px";
 
+  // Solid flat borders and backgrounds - NO gradient outlines!
   const variants = {
     primary:
-      "bg-[#1E3A5F] text-white hover:bg-[#152A45] focus-visible:outline-[#1E3A5F]",
-    blue:
-      "bg-blue-600 text-white hover:bg-blue-700 focus-visible:outline-blue-600 shadow-blue-500/10",
-    orange:
-      "bg-orange-600 text-white hover:bg-orange-700 focus-visible:outline-orange-600 shadow-orange-500/10",
+      "bg-[#ff7043] border border-[#ff7043] text-white hover:bg-[#f4511e] hover:border-[#f4511e] shadow-xs",
+    dark:
+      "bg-[#263238] border border-[#263238] text-white hover:bg-[#1b2428] hover:border-[#1b2428] shadow-xs",
     secondary:
-      "bg-white border border-slate-300 text-slate-800 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-slate-400",
+      "bg-white border border-[#dde1e6] text-[#263238] hover:bg-[#f2f4f8] hover:border-[#c5cbd3] shadow-xs",
     ghost:
-      "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 shadow-none",
+      "text-[#263238] hover:text-[#ff7043] hover:bg-[#f2f4f8]",
   };
 
   const classes = cn(base, variants[variant], className);
