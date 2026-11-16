@@ -24,6 +24,13 @@ export function createMetadata({
     alternates: {
       canonical: `${siteUrl}${path}`,
     },
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico" },
+      ],
+      apple: "/favicon.svg",
+    },
     openGraph: {
       title: fullTitle,
       description,
