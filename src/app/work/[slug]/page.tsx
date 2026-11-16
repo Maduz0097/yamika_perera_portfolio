@@ -3,12 +3,15 @@ import { createMetadata } from "@/lib/metadata";
 import { projects, getProjectBySlug, getAllProjectSlugs } from "@/content/projects";
 import Button from "@/components/ui/Button";
 
+type Params = Promise<{ slug: string }>;
+
 export function generateStaticParams() {
   return getAllProjectSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Params }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
   if (!project) return {};
   return createMetadata({
     title: project.title,
@@ -17,8 +20,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   });
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: { params: Params }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
   if (!project) notFound();
 
   // Find next project for navigation
