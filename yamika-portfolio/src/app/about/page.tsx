@@ -57,12 +57,11 @@ export default function AboutPage() {
             <div className="flex items-center gap-2 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#ff7043]" />
               <h3 className="text-sm font-bold text-[#263238]">
-                Location & Availability
+                Location
               </h3>
             </div>
             <p className="text-sm text-[#546e7a] leading-relaxed">
-              Based in {profile.location}. Open to relocation to Dubai, UAE.
-              Requires UAE employment visa sponsorship.
+              Based in {profile.location}. Available for remote and global opportunities.
             </p>
           </div>
 

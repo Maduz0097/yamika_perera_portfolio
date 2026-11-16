@@ -14,7 +14,7 @@ export default function Footer() {
                 {profile.name}
               </p>
             </div>
-            <p className="text-xs text-[#546e7a] mt-1">{profile.title} • Dubai, UAE Relocation</p>
+            <p className="text-xs text-[#546e7a] mt-1">{profile.title}</p>
           </div>
           <div className="flex items-center gap-6 text-sm font-semibold text-[#546e7a]">
             <a

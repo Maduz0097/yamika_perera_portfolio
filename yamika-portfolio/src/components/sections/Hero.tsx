@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="flex items-center gap-2 mb-6">
           <span className="w-5 h-[2px] bg-[#ff7043] inline-block" />
           <span className="text-xs font-bold tracking-widest uppercase text-[#546e7a]">
-            Technical Product Manager • Open to Dubai, UAE
+            Technical Product Manager
           </span>
         </div>
 
@@ -69,7 +69,7 @@ export default function Hero() {
               Flo Recruiter AI
             </span>
             <span className="px-3 py-1 text-xs font-semibold rounded bg-[#ff704318] border border-[#ff704344] text-[#d84315]">
-              Dubai Relocation Ready
+              Available for Opportunities
             </span>
           </div>
         </div>

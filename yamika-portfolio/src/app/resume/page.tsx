@@ -28,15 +28,15 @@ export default function ResumePage() {
             </h1>
             <p className="text-lg font-semibold text-[#ff7043] mt-1">{profile.title}</p>
             <p className="text-sm text-[#546e7a] mt-1">
-              {profile.location} • Open to relocation to Dubai, UAE
+              Based in {profile.location}
             </p>
           </div>
           <div className="flex gap-2">
             <Button href={`mailto:${profile.email}`} external variant="primary">
-              Email
+              Email Me
             </Button>
             <Button href={profile.linkedin} external variant="secondary">
-              LinkedIn
+              LinkedIn Profile
             </Button>
           </div>
         </div>

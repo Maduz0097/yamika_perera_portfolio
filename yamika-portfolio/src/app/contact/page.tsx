@@ -16,7 +16,7 @@ export default function ContactPage() {
         <SectionHeading
           eyebrow="CONTACT"
           title="Get in Touch"
-          subtitle="I'm open to conversations about product leadership, AI product management, and engineering opportunities in Dubai and internationally."
+          subtitle="I'm open to conversations about product leadership, AI product management, and engineering opportunities."
         />
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -95,12 +95,11 @@ export default function ContactPage() {
           <div className="flex items-center gap-2 mb-2">
             <span className="w-2 h-2 rounded-full bg-[#ff7043]" />
             <h3 className="text-sm font-bold text-[#263238]">
-              Location & Relocation Availability
+              Location & Availability
             </h3>
           </div>
           <p className="text-sm text-[#546e7a] leading-relaxed">
-            Based in {profile.location}. Open to relocation to Dubai, UAE.
-            Employment visa sponsorship required.
+            Based in {profile.location}. Available for remote, on-site, and global opportunities.
           </p>
         </div>
       </div>

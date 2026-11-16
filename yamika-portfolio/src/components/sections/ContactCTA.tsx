@@ -22,14 +22,8 @@ export default function ContactCTA() {
 
           <p className="mt-4 text-base md:text-lg text-[#d0dce5] max-w-xl mx-auto leading-relaxed">
             I&apos;m open to conversations about product leadership, AI product
-            management, and engineering leadership — particularly opportunities
-            in Dubai, UAE.
+            management, and engineering leadership.
           </p>
-
-          <div className="mt-6 inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold text-white bg-[#ffffff14] border border-[#ffffff28] rounded-full">
-            <span className="w-2 h-2 rounded-full bg-[#ff7043]" />
-            <span>Open to relocation to Dubai • UAE employment visa sponsorship required</span>
-          </div>
 
           {/* Clean solid buttons - NO gradient outlines! */}
           <div className="mt-8 flex flex-wrap justify-center gap-4">
